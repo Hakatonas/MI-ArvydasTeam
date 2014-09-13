@@ -53,6 +53,9 @@ class Povilas implements ArvydasTeamInterface  {
         {
             print_f($user);
         }
+        else{
+            print_f('Su klaida, mongoDB nera įrašo');
+        }
     }
 }
 //Eimantas
