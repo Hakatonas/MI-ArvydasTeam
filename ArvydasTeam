@@ -22,7 +22,7 @@ class ArvydasTeam{
 }
 
 interface ArvydasTeamInterface {
-    public function showSomeText();
+    public function show();
 }
  ///Arvydas
 class Arvydas implements ArvydasTeamInterface {
