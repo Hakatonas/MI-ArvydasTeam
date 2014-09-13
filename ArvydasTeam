@@ -1,4 +1,4 @@
-<php 
+<?php 
 
 class ArvydasTeam{
     private $strategy = NULL; 
@@ -42,16 +42,26 @@ class Arvydas implements ArvydasTeamInterface {
 }
 //Povilas
 class Povilas implements ArvydasTeamInterface  {
-    private $db = connect("localhost:27017/coolusers");
-    private $user->findOne(array('user_id' => 'tomas')));public function show(){
-        
-        if($user !=Null)
-        {
-            print_f($user);
-        }
-        else{
-            print_f('Su klaida, mongoDB nera įrašo');
-        }
+    
+    private $m;
+    private $db;
+    private $collection;
+
+    public function __construct(){
+        // connect to mongodb
+        $this->m = new MongoClient();
+        // select a database
+        $this->db = $this->m->MediaInno;
+        // Select collection
+        $this->collection = $this->db->COOL_USERS;
+    }
+
+    public function show(){
+        $cursor = $this->collection->findOne(array('user_id' => 22));
+        return $cursor["user_name"] . "\n";   
+       /*foreach ($cursor as $document) {
+          echo $document["user_name"] . "\n";
+       }*/               
     }
 }
 //Eimantas
@@ -62,8 +72,6 @@ class Eimantas implements ArvydasTeamInterface  {
 
   writeln('BEGIN TESTING STRATEGY PATTERN');
   writeln('');
-
-  $book = new Book('PHP for Cats','Larry Truett');
  
   $strategyArvydas = new Arvydas('C');
   $strategyPovilas = new Povilas('E');
@@ -86,6 +94,3 @@ class Eimantas implements ArvydasTeamInterface  {
   function writeln($line_in) {
     echo $line_in."<br/>";
   }
-
-?>
-}
