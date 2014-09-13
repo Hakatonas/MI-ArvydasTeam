@@ -2,6 +2,7 @@
 
 class ArvydasTeam{
     private $strategy = NULL; 
+    //nera inicijuotu scenariju
     public function __construct($strategy_ind_id) {
         switch ($strategy_ind_id) {
             case "C": 
@@ -14,6 +15,9 @@ class ArvydasTeam{
                 $this->strategy = new Eimantas();
             break;
         }
+    }
+    public function showResponse($book) {
+      return $this->strategy->show($book);
     }
 }
 
@@ -67,6 +71,7 @@ class Povilas implements ArvydasTeamInterface  {
 //Eimantas
 class Eimantas implements ArvydasTeamInterface  {
     public function show(){
+		return 'simple Text with no DataBase';
     }
 }
 
