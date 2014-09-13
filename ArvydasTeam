@@ -46,8 +46,13 @@ class Arvydas implements ArvydasTeamInterface {
 }
 //Povilas
 class Povilas implements ArvydasTeamInterface  {
-    public function show(){
+    private $db = connect("localhost:27017/coolusers");
+    private $user->findOne(array('user_id' => 'tomas')));public function show(){
         
+        if($user !=Null)
+        {
+            print_f($user);
+        }
     }
 }
 //Eimantas
@@ -65,15 +70,15 @@ class Eimantas implements ArvydasTeamInterface  {
   $strategyPovilas = new Povilas('E');
   $strategyEimantas = new Eimantas('S');
  
-  writeln('test 1 - show  Arvydas');
+  writeln('test 1 - show scenario Arvydas');
   writeln($strategyArvydas->show());
   writeln('');
 
-  writeln('test 2 - show name Povilas');
+  writeln('test 2 - show scenario Povilas');
   writeln($strategyPovilas->show());
   writeln('');
  
-  writeln('test 3 - show name Eimantas');
+  writeln('test 3 - show scenario Eimantas');
   writeln($strategyEimantas->show());
   writeln('');
 
