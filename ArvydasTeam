@@ -49,20 +49,20 @@ class Eimantas implements ArvydasTeamInterface  {
 
   $book = new Book('PHP for Cats','Larry Truett');
  
-  $StrategyArvydas = new Arvydas('C');
+  $strategyArvydas = new Arvydas('C');
   $strategyPovilas = new Povilas('E');
   $strategyEimantas = new Eimantas('S');
  
   writeln('test 1 - show  Arvydas');
-  writeln($strategyContextC->show($book));
+  writeln($strategyArvydas->show());
   writeln('');
 
   writeln('test 2 - show name Povilas');
-  writeln($strategyContextE->show($book));
+  writeln($strategyPovilas->show());
   writeln('');
  
   writeln('test 3 - show name Eimantas');
-  writeln($strategyContextS->show());
+  writeln($strategyEimantas->show());
   writeln('');
 
   writeln('END TESTING STRATEGY PATTERN');
