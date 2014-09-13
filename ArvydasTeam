@@ -1,0 +1,75 @@
+<php 
+
+class ArvydasTeam{
+    private $strategy = NULL; 
+    //nera inicijuotu scenariju
+    public function __construct($strategy_ind_id) {
+        switch ($strategy_ind_id) {
+            case "C": 
+                $this->strategy = new Arvydas();
+            break;
+            case "E": 
+                $this->strategy = new Povilas();
+            break;
+            case "S": 
+                $this->strategy = new Eimantas();
+            break;
+        }
+    }
+    public function showResponse($book) {
+      return $this->strategy->show($book);
+    }
+}
+
+interface ArvydasTeamInterface {
+    public function showSomeText();
+}
+ ///Arvydas
+class Arvydas implements ArvydasTeamInterface {
+    public function showTitle($book_in) {
+        $title = $book_in->getTitle();
+        $this->titleCount++;
+        return strtoupper ($title);
+    }
+}
+//Povilas
+class Povilas implements ArvydasTeamInterface  {
+    public function show(){
+        
+    }
+}
+//Eimantas
+class Eimantas implements ArvydasTeamInterface  {
+    public function show(){
+    }
+}
+
+  writeln('BEGIN TESTING STRATEGY PATTERN');
+  writeln('');
+
+  $book = new Book('PHP for Cats','Larry Truett');
+ 
+  $StrategyArvydas = new Arvydas('C');
+  $strategyPovilas = new Povilas('E');
+  $strategyEimantas = new Eimantas('S');
+ 
+  writeln('test 1 - show  Arvydas');
+  writeln($strategyContextC->show($book));
+  writeln('');
+
+  writeln('test 2 - show name Povilas');
+  writeln($strategyContextE->show($book));
+  writeln('');
+ 
+  writeln('test 3 - show name Eimantas');
+  writeln($strategyContextS->show());
+  writeln('');
+
+  writeln('END TESTING STRATEGY PATTERN');
+
+  function writeln($line_in) {
+    echo $line_in."<br/>";
+  }
+
+?>
+}
